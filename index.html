@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TREE — Inicio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header header-bg">
+    <div class="nav container">
+      <a class="brand" href="index.html">
+        <img src="logo.jpeg" alt="TREE logo">
+        <span>TREE</span>
+      </a>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
+
+      <nav id="mainNav" class="main-nav" aria-label="Menú principal">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="SobreNosotros.html">Sobre Nosotros</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="contacto.html">Contactos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card hero-landing">
+      <div class="hero-left">
+        <h1>Prendas originales importadas</h1>
+        <p class="lead">
+          En <strong>TREE</strong> te ofrecemos ropa auténtica importada y de alta calidad,
+          con precios accesibles para que el estilo esté al alcance de todos.
+        </p>
+
+        <div class="cta-row">
+          <a class="cta" href="catalogo.html">Ver catálogo</a>
+          <a class="cta alt" href="SobreNosotros.html">Quiénes somos</a>
+        </div>
+
+        <div class="stats">
+          <div><strong>+500</strong><span>Clientes satisfechos</span></div>
+          <div><strong>100%</strong><span>Prendas originales</span></div>
+          <div><strong>Ahorro</strong><span>Precios accesibles</span></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <img src="po.png" alt="Paleta TREE">
+        <div class="featured-swatch" aria-hidden="true">
+          <div class="swatch" style="background:#123b33"></div>
+          <div class="swatch" style="background:#4a5d56"></div>
+          <div class="swatch" style="background:#a8c8b0"></div>
+          <div class="swatch" style="background:#cfe6d2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Productos destacados</h2>
+      <div id="featured" class="grid featured-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Consejos rápidos</h2>
+      <div class="two-cols">
+        <article>
+          <h4>Cómo cuidar tus prendas</h4>
+          <p class="small">Lava en ciclo suave y seca a la sombra para conservar la calidad.</p>
+        </article>
+        <article>
+          <h4>Consejos de tallaje</h4>
+          <p class="small">Si dudas sobre la talla, consúltanos por WhatsApp antes de comprar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card newsletter">
+      <h3>Suscríbete y recibe un 10% OFF</h3>
+      <form id="newsletterForm" class="newsletter-form">
+        <input id="newsletterEmail" type="email" placeholder="Tu email" required>
+        <button class="btn" type="submit">Suscribirme</button>
+      </form>
+      <div id="newsletterMsg" class="small muted" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© TREE — Prendas importadas</div>
+      <div class="socials small"><a href="#">Instagram</a> · <a href="#">Facebook</a></div>
+    </div>
+  </footer>
+
+  <button class="cart-btn" onclick="toggleCart()" aria-label="Abrir carrito">🛒 <span id="cart-count">0</span></button>
+  <div id="cartPanel" class="cart-panel" style="display:none" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

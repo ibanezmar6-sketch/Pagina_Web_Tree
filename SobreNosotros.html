@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TREE — Sobre Nosotros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header header-bg">
+  <div class="nav container">
+    <a class="brand" href="index.html">
+      <img src="logo.jpeg" alt="TREE logo">
+      <span>TREE</span>
+    </a>
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
+    <nav id="mainNav" class="main-nav" aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a class="active" href="SobreNosotros.html">Sobre Nosotros</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="contacto.html">Contactos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Quiénes somos</h2>
+    <p class="small">
+      En <strong>TREE</strong> seleccionamos prendas importadas de alta calidad,
+      ofreciendo diseños actuales y precios accesibles para que todos puedan lucir bien.
+    </p>
+  </section>
+
+  <section class="card two-cols">
+    <div>
+      <h3>Nuestra misión</h3>
+      <p class="small">Ofrecer prendas originales importadas, con atención personalizada y garantía en cada compra.</p>
+      <ul>
+        <li>Selección profesional de productos</li>
+        <li>Calidad garantizada</li>
+        <li>Atención cercana y personalizada</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Equipo</h3>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="mariela.jpg" alt="Mariela">
+          <h5>Mariela — Administración</h5>
+          <p class="small">Gestión, atención al cliente y control de inventario.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="Mauricio.jpg" alt="Mauricio">
+          <h5>Mauricio — Operaciones</h5>
+          <p class="small">Logística, control de calidad y coordinación de envíos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Preguntas frecuentes</h3>
+    <details><summary>¿Hacen envíos?</summary><p class="small">Sí, coordinamos costos y tiempos por WhatsApp.</p></details>
+    <details><summary>Devoluciones</summary><p class="small">Aceptamos devoluciones en 14 días si la prenda está en condiciones originales.</p></details>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="container">© TREE — Prendas importadas</div></footer>
+
+<button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
+<div id="cartPanel" class="cart-panel" style="display:none"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
