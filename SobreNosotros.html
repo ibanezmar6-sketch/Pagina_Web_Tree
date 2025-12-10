@@ -24,52 +24,111 @@
   </div>
 </header>
 
-<main class="container">
+<main class="container sobre-nosotros-anim">
+
+  <!-- QUIÉNES SOMOS -->
   <section class="card">
-    <h2>Quiénes somos</h2>
-    <p class="small">
+    <h2 class="sn-title">Quiénes somos</h2>
+
+    <p class="sn-text">
       En <strong>TREE</strong> seleccionamos prendas importadas de alta calidad,
-      ofreciendo diseños actuales y precios accesibles para que todos puedan lucir bien.
+      eligiendo cuidadosamente cada artículo para ofrecer ropa auténtica,
+      moderna y duradera. Nuestro enfoque se basa en brindar productos 100% originales,
+      de marcas reconocidas internacionalmente y con estándares elevados de fabricación.
+    </p>
+
+    <p class="sn-text">
+      Queremos que cada cliente sienta confianza y satisfacción total,
+      adquiriendo prendas que no solo se vean bien, sino que también
+      representen estilo, identidad y comodidad.
     </p>
   </section>
 
-  <section class="card two-cols">
-    <div>
-      <h3>Nuestra misión</h3>
-      <p class="small">Ofrecer prendas originales importadas, con atención personalizada y garantía en cada compra.</p>
-      <ul>
-        <li>Selección profesional de productos</li>
-        <li>Calidad garantizada</li>
-        <li>Atención cercana y personalizada</li>
-      </ul>
-    </div>
+  <!-- MISIÓN + EQUIPO -->
+  <section class="card">
+    
+    <!-- MISIÓN -->
+    <h3 class="sn-subtitle">Nuestra misión</h3>
+    <p class="sn-text">
+      Ofrecer prendas originales importadas, con atención personalizada
+      y garantía en cada compra, conectando a nuestros clientes con moda auténtica,
+      durable y accesible.
+    </p>
 
-    <div>
-      <h3>Equipo</h3>
-      <div class="team-grid">
-        <div class="team-member">
-          <img src="mariela.jpg" alt="Mariela">
-          <h5>Mariela — Administración</h5>
-          <p class="small">Gestión, atención al cliente y control de inventario.</p>
-        </div>
+    <ul class="sn-list">
+      <li>Selección profesional de productos</li>
+      <li>Calidad certificada y original</li>
+      <li>Atención cercana y personalizada</li>
+      <li>Envíos seguros y puntuales</li>
+    </ul>
 
-        <div class="team-member">
-          <img src="Mauricio.jpg" alt="Mauricio">
-          <h5>Mauricio — Operaciones</h5>
-          <p class="small">Logística, control de calidad y coordinación de envíos.</p>
-        </div>
+    <!-- EQUIPO -->
+    <h3 class="sn-subtitle">Nuestro equipo</h3>
+
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="mariela.jpg" alt="Mariela">
+        <h5>Mariela — Administración</h5>
+        <p class="small">
+          Encargada de gestión, atención al cliente e inventario. 
+          Garantiza que cada prenda llegue en óptimas condiciones.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <img src="Mauricio.jpg" alt="Mauricio">
+        <h5>Mauricio — Operaciones</h5>
+        <p class="small">
+          Responsable de logística, control de calidad y coordinación de envíos
+          para asegurar entregas rápidas y confiables.
+        </p>
       </div>
     </div>
+
   </section>
 
+  <!-- PREGUNTAS FRECUENTES -->
   <section class="card">
-    <h3>Preguntas frecuentes</h3>
-    <details><summary>¿Hacen envíos?</summary><p class="small">Sí, coordinamos costos y tiempos por WhatsApp.</p></details>
-    <details><summary>Devoluciones</summary><p class="small">Aceptamos devoluciones en 14 días si la prenda está en condiciones originales.</p></details>
+    <h3 class="sn-subtitle">Preguntas frecuentes</h3>
+
+    <details class="sn-details">
+      <summary>¿Hacen envíos?</summary>
+      <p class="small">Sí, realizamos envíos dentro del país. Coordinamos tiempos y costos por WhatsApp.</p>
+    </details>
+
+    <details class="sn-details">
+      <summary>¿Aceptan devoluciones?</summary>
+      <p class="small">Sí, dentro de los primeros 14 días siempre que la prenda esté en condiciones originales.</p>
+    </details>
+
+    <details class="sn-details">
+      <summary>¿Las prendas son originales?</summary>
+      <p class="small">Todas nuestras prendas son 100% originales, importadas y seleccionadas por calidad.</p>
+    </details>
+    
+    <details class="sn-details">
+      <summary>¿Cómo puedo verificar que una prenda es original?</summary>
+      <p class="small">
+        Todas nuestras prendas cuentan con etiquetas, detalles y acabados propios de productos originales.
+        Si lo deseas, podemos enviarte fotos o videos adicionales antes de tu compra.
+      </p>
+    </details>
+
+    <details class="sn-details">
+      <summary>¿Qué métodos de pago aceptan?</summary>
+      <p class="small">
+        Aceptamos transferencias, QR y pago contra entrega en algunas zonas. 
+        Coordinamos todo el proceso de forma rápida por WhatsApp.
+      </p>
+    </details>
+
   </section>
+
 </main>
 
-<footer class="site-footer"><div class="container">© TREE — Prendas importadas</div></footer>
+<footer class="site-footer">
+  <div class="container">© TREE — Prendas importadas</div>
+</footer>
 
 <button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
 <div id="cartPanel" class="cart-panel" style="display:none"></div>

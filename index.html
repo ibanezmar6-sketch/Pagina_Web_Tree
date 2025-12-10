@@ -1,102 +1,150 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TREE — Inicio</title>
-  <link rel="stylesheet" href="style.css">
+<!doctype html> <!-- Declara el tipo de documento HTML5 -->
+<html lang="es"> <!-- Define que el idioma principal de la página es español -->
+<head> <!-- Inicio del encabezado del documento -->
+  <meta charset="utf-8" /> <!-- Configura la codificación de caracteres en UTF-8 -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- Ajusta la página para que sea responsive en móviles -->
+  <title>TREE — Inicio</title> <!-- Título que se muestra en la pestaña del navegador -->
+  <link rel="stylesheet" href="style.css"> <!-- Importa el archivo CSS principal -->
 </head>
-<body>
+<body> <!-- Inicio del cuerpo de la página -->
 
-  <header class="site-header header-bg">
-    <div class="nav container">
-      <a class="brand" href="index.html">
-        <img src="logo.jpeg" alt="TREE logo">
-        <span>TREE</span>
+  <header class="site-header header-bg"> <!-- Encabezado de la página con fondo personalizado -->
+    <div class="nav container"> <!-- Contenedor principal del menú de navegación -->
+      <a class="brand" href="index.html"> <!-- Logo y nombre que llevan al inicio -->
+        <img src="logo.jpeg" alt="TREE logo"> <!-- Imagen del logo -->
+        <span>TREE</span> <!-- Texto del nombre de la marca -->
       </a>
 
-      <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
+      <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button> <!-- Botón para abrir/cerrar menú en móviles -->
 
-      <nav id="mainNav" class="main-nav" aria-label="Menú principal">
-        <a href="index.html" class="active">Inicio</a>
-        <a href="SobreNosotros.html">Sobre Nosotros</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="contacto.html">Contactos</a>
+      <nav id="mainNav" class="main-nav" aria-label="Menú principal"> <!-- Menú principal de navegación -->
+        <a href="index.html" class="active">Inicio</a> <!-- Enlace a la página de inicio -->
+        <a href="SobreNosotros.html">Sobre Nosotros</a> <!-- Enlace a la sección de información -->
+        <a href="catalogo.html">Catálogo</a> <!-- Enlace al catálogo de productos -->
+        <a href="contacto.html">Contactos</a> <!-- Enlace a la página de contacto -->
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero card hero-landing">
-      <div class="hero-left">
-        <h1>Prendas originales importadas</h1>
-        <p class="lead">
+  <main class="container"> <!-- Contenedor principal del contenido de la página -->
+    <section class="hero card hero-landing"> <!-- Sección principal tipo hero -->
+      <div class="hero-left"> <!-- Columna izquierda del hero -->
+        <h1>Prendas originales importadas</h1> <!-- Título principal del hero -->
+
+        <p class="lead"> <!-- Texto introductorio destacado -->
           En <strong>TREE</strong> te ofrecemos ropa auténtica importada y de alta calidad,
-          con precios accesibles para que el estilo esté al alcance de todos.
+          con precios accesibles.
+        </p>
+        <p class="lead"> <!-- Segundo párrafo informativo -->
+          Cada prenda forma parte de una selección exclusiva que reúne las marcas más solicitadas y 
+          reconocidas internacionalmente, garantizando elegancia, durabilidad y confort.
         </p>
 
-        <div class="cta-row">
-          <a class="cta" href="catalogo.html">Ver catálogo</a>
-          <a class="cta alt" href="SobreNosotros.html">Quiénes somos</a>
+        <div class="cta-row"> <!-- Contenedor de botones de acción -->
+          <a class="cta" href="catalogo.html">Ver catálogo</a> <!-- Botón para ir al catálogo -->
+          <a class="cta alt" href="SobreNosotros.html">Quiénes somos</a> <!-- Botón alternativo informativo -->
         </div>
 
-        <div class="stats">
-          <div><strong>+500</strong><span>Clientes satisfechos</span></div>
-          <div><strong>100%</strong><span>Prendas originales</span></div>
-          <div><strong>Ahorro</strong><span>Precios accesibles</span></div>
+        <div class="stats"> <!-- Bloque de estadísticas informativas -->
+          <div><strong>+500</strong><span>Clientes satisfechos</span></div> <!-- Estadística 1 -->
+          <div><strong>100%</strong><span>Originales y garantizadas</span></div> <!-- Estadística 2 -->
+          <div><strong>Ahorro</strong><span>Precios accesibles y competitivos</span></div> <!-- Estadística 3 -->
         </div>
       </div>
 
-      <div class="hero-right">
-        <img src="po.png" alt="Paleta TREE">
-        <div class="featured-swatch" aria-hidden="true">
-          <div class="swatch" style="background:#123b33"></div>
-          <div class="swatch" style="background:#4a5d56"></div>
-          <div class="swatch" style="background:#a8c8b0"></div>
-          <div class="swatch" style="background:#cfe6d2"></div>
+      <div class="hero-right"> <!-- Columna derecha del hero -->
+        <img src="po.png" alt="Paleta TREE"> <!-- Imagen decorativa principal -->
+
+        <p class="small" style="max-width:300px;text-align:center;margin-top:12px;"> <!-- Frase motivacional -->
+          "Tu energía, tu ropa, tu poder"
+        </p>
+
+        <div class="featured-swatch" aria-hidden="true"> <!-- Paleta de colores decorativa -->
+          <div class="swatch" style="background:#123b33"></div> <!-- Color 1 -->
+          <div class="swatch" style="background:#4a5d56"></div> <!-- Color 2 -->
+          <div class="swatch" style="background:#a8c8b0"></div> <!-- Color 3 -->
+          <div class="swatch" style="background:#cfe6d2"></div> <!-- Color 4 -->
         </div>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Productos destacados</h2>
-      <div id="featured" class="grid featured-grid" aria-live="polite"></div>
+    <section class="card"> <!-- Sección de productos destacados -->
+      <h2>Productos destacados</h2> <!-- Título de la sección -->
+      <p class="small" style="margin-bottom:10px;"> <!-- Texto introductorio -->
+        Una selección de nuestras prendas más solicitadas por su originalidad, prestigio y estilo. 
+        Cada pieza refleja la esencia de TREE: calidad superior, diseño auténtico y moda accesible.
+      </p>
+      <div id="featured" class="grid featured-grid" aria-live="polite"></div> <!-- Contenedor donde JS insertará productos -->
     </section>
 
-    <section class="card">
-      <h2>Consejos rápidos</h2>
-      <div class="two-cols">
-        <article>
-          <h4>Cómo cuidar tus prendas</h4>
-          <p class="small">Lava en ciclo suave y seca a la sombra para conservar la calidad.</p>
+    <section class="card"> <!-- Sección de consejos -->
+      <h2>Consejos rápidos</h2> <!-- Título de sección -->
+      <div class="two-cols"> <!-- Contenedor de dos columnas -->
+
+        <article> <!-- Primer artículo de consejos -->
+          <h4>Cómo cuidar tus prendas 👕 </h4> <!-- Título del artículo -->
+          <p class="small"> <!-- Texto explicativo -->
+            Para conservar la forma, color y textura de tus prendas originales, recomendamos lavarlas en ciclo suave, 
+            evitar temperaturas altas y dejarlas secar a la sombra. 
+          </p>
+
+          <p class="small"> <!-- Segundo párrafo explicativo -->
+            Muchos de nuestros productos están elaborados con fibras premium que requieren un cuidado delicado para asegurar su durabilidad.
+          </p>
         </article>
-        <article>
-          <h4>Consejos de tallaje</h4>
-          <p class="small">Si dudas sobre la talla, consúltanos por WhatsApp antes de comprar.</p>
+
+        <article> <!-- Segundo artículo de consejos -->
+          <h4>Consejos de tallaje</h4> <!-- Título del artículo -->
+          <p class="small"> <!-- Texto explicativo -->
+            Cada marca maneja un tallaje distinto, por lo que nuestra recomendación es revisar la guía incluida en la ficha
+            de cada producto. Si aún tienes dudas, comunicate con nosotros via whatsapp.
+          </p>
+          <p class="small"> <!-- Recomendación final -->
+            Asegurate verificar el talle antes de realizar tu compra. ✔️
+          </p>
         </article>
+
       </div>
     </section>
 
-    <section class="card newsletter">
-      <h3>Suscríbete y recibe un 10% OFF</h3>
-      <form id="newsletterForm" class="newsletter-form">
-        <input id="newsletterEmail" type="email" placeholder="Tu email" required>
-        <button class="btn" type="submit">Suscribirme</button>
+    <section class="card newsletter"> <!-- Sección de newsletter -->
+      <h3>Suscríbete y recibe un 10% OFF</h3> <!-- Título promocional -->
+
+      <p class="small" style="margin-bottom:10px;"> <!-- Texto descriptivo -->
+        Sé parte de nuestra comunidad y recibe novedades, promociones exclusivas y lanzamientos
+        de colecciones originales.
+      </p>
+
+      <form id="newsletterForm" class="newsletter-form"> <!-- Formulario de suscripción -->
+        <input id="newsletterEmail" type="email" placeholder="Tu email" required> <!-- Campo de email -->
+        <button class="btn" type="submit">Suscribirme</button> <!-- Botón para enviar el formulario -->
       </form>
-      <div id="newsletterMsg" class="small muted" aria-live="polite"></div>
+
+      <div id="newsletterMsg" class="small muted" aria-live="polite"></div> <!-- Mensajes de respuesta del formulario -->
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <div>© TREE — Prendas importadas</div>
-      <div class="socials small"><a href="#">Instagram</a> · <a href="#">Facebook</a></div>
+  <!--MODAL COMPLETO-->
+  <div id="productModal" class="modal" style="display:none" aria-hidden="true"> <!-- Modal oculto para ver detalles de productos -->
+    <div class="modal-inner" role="dialog" aria-modal="true"> <!-- Contenedor del contenido del modal -->
+      <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button> <!-- Botón para cerrar el modal -->
+      <div id="modalContent"></div> <!-- Aquí se cargan los datos del producto seleccionado -->
+    </div>
+  </div>
+
+  <footer class="site-footer"> <!-- Pie de página -->
+    <div class="container footer-row"> <!-- Contenedor principal del footer -->
+      <div>© TREE — Prendas importadas</div> <!-- Texto de derechos -->
+      <div class="socials small"><a href="#">Instagram</a> · <a href="#">Facebook</a></div> <!-- Enlaces a redes -->
     </div>
   </footer>
 
-  <button class="cart-btn" onclick="toggleCart()" aria-label="Abrir carrito">🛒 <span id="cart-count">0</span></button>
-  <div id="cartPanel" class="cart-panel" style="display:none" aria-live="polite"></div>
+  <button class="cart-btn" onclick="toggleCart()" aria-label="Abrir carrito"> <!-- Botón flotante del carrito -->
+    🛒 <span id="cart-count">0</span> <!-- Cantidad de productos en el carrito -->
+  </button>
 
-  <script src="app.js"></script>
+  <div id="cartPanel" class="cart-panel" style="display:none" aria-live="polite"></div> <!-- Panel lateral del carrito -->
+
+  <script src="app.js"></script> <!-- Archivo JS principal de la página -->
 </body>
 </html>

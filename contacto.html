@@ -1,21 +1,21 @@
-<!doctype html>
-<html lang="es">
+<!doctype html> <!-- Declara documento HTML5 -->
+<html lang="es"> <!-- Idioma español -->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TREE — Contacto</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"> <!-- Codificación UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Diseño responsive -->
+  <title>TREE — Contacto</title> <!-- Título de la pestaña -->
+  <link rel="stylesheet" href="style.css"> <!-- Vincula el CSS -->
 </head>
-<body>
+<body> <!-- Inicio del cuerpo -->
 
-<header class="site-header header-bg">
-  <div class="nav container">
-    <a class="brand" href="index.html">
-      <img src="logo.jpeg" alt="TREE logo">
-      <span>TREE</span>
+<header class="site-header header-bg"> <!-- Encabezado con fondo -->
+  <div class="nav container"> <!-- Contenedor principal del menú -->
+    <a class="brand" href="index.html"> <!-- Logo + enlace al inicio -->
+      <img src="logo.jpeg" alt="TREE logo"> <!-- Logo -->
+      <span>TREE</span> <!-- Nombre de marca -->
     </a>
-    <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav id="mainNav" class="main-nav" aria-label="Menú principal">
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button> <!-- Menú móvil -->
+    <nav id="mainNav" class="main-nav" aria-label="Menú principal"> <!-- Navegación -->
       <a href="index.html">Inicio</a>
       <a href="SobreNosotros.html">Sobre Nosotros</a>
       <a href="catalogo.html">Catálogo</a>
@@ -24,34 +24,84 @@
   </div>
 </header>
 
-<main class="container">
-  <section class="card">
-    <h2>Contáctanos</h2>
-    <p class="small">Atención vía WhatsApp: <strong>+591 60592868</strong></p>
+<main class="container"> <!-- Contenedor principal -->
+  <section class="card"> <!-- Tarjeta del contenido -->
+    <h2>Contáctanos</h2> <!-- Título -->
+    <p class="small">Atención al Cliente:</p> <!-- Subtítulo -->
 
-    <div class="two-cols">
-      <form id="contactForm" class="card" aria-label="Formulario de contacto">
-        <h4>Enviar mensaje</h4>
-        <input id="name" placeholder="Nombre" required />
-        <input id="phone" placeholder="Teléfono" required />
-        <textarea id="message" placeholder="Mensaje" required></textarea>
-        <button class="btn" type="submit">Enviar por WhatsApp</button>
-      </form>
+    <div class="two-cols"> <!-- Dos columnas -->
 
-      <div class="card">
-        <h4>Información</h4>
-        <p class="small"><strong>Horario</strong>: Lun - Vie 9:00 - 18:00</p>
-        <p class="small"><strong>Dirección</strong>: Calle Ejemplo 123</p>
+      <!-- FORMULARIO PROFESIONAL -->
+      <div class="card" style="padding:26px;"> <!-- Tarjeta del formulario -->
+        <h4>Enviar mensaje</h4> <!-- Subtítulo -->
+
+        <form id="contactForm" aria-label="Formulario de contacto"> <!-- Formulario -->
+          <div style="display:flex; flex-direction:column; gap:14px;"> <!-- Contenedor vertical -->
+
+            <div class="form-group"> <!-- Campo nombre -->
+              <label for="name">Nombre</label> <!-- Etiqueta -->
+              <input id="name" placeholder="Tu nombre completo" required> <!-- Input nombre -->
+            </div>
+
+            <div class="form-group"> <!-- Campo teléfono -->
+              <label for="phone">Teléfono</label> <!-- Etiqueta -->
+              <input id="phone" placeholder="Ej: 60592868" required> <!-- Input teléfono -->
+            </div>
+
+            <div class="form-group"> <!-- Campo mensaje -->
+              <label for="message">Mensaje</label> <!-- Etiqueta -->
+              <textarea id="message" placeholder="Escribe tu consulta aquí..." required></textarea> <!-- Texto -->
+            </div>
+
+            <button class="btn contact-btn" type="submit" style="margin-top:8px;"> <!-- Botón enviar -->
+              Enviar por WhatsApp
+            </button>
+
+          </div>
+        </form>
       </div>
+
+      <!-- INFORMACIÓN + MAPA -->
+      <div class="card" style="padding:22px;"> <!-- Tarjeta de información -->
+
+        <h4>Información de contacto</h4> <!-- Título -->
+
+        <p class="small"><strong>📍 Ubicación:</strong> La Paz, Bolivia</p> <!-- Ubicación -->
+        <p class="small"><strong>🕒 Horario:</strong> Lun - Vie 9:00 - 18:00</p> <!-- Horario -->
+        <p class="small"><strong>📦 Envíos a nivel nacional</strong></p> <!-- Envíos -->
+        <p class="small"><strong>📞 WhatsApp:</strong> +591 78539749</p> <!-- Teléfono -->
+
+        <p class="small"> <!-- Información adicional -->
+          Brindamos atención personalizada para ayudarte con disponibilidad,
+          tallas, detalles de envío y recomendaciones.
+        </p>
+
+        <!-- MAPA -->
+        <div class="contact-map" style="margin-top:10px; border-radius:12px; overflow:hidden;"> <!-- Contenedor mapa -->
+          <iframe 
+            width="100%" 
+            height="220"
+            style="border:0;"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3831.8209603734587!2d-68.12151492475529!3d-16.48968984239748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edfcd0ae4a3ad%3A0x3ce437a3ce4bf5b!2sCentro%20de%20La%20Paz!5e0!3m2!1ses!2sbo!4v1700001111111">
+          </iframe> <!-- Mapa embebido -->
+        </div>
+
+      </div>
+
     </div>
   </section>
 </main>
 
-<footer class="site-footer"><div class="container">© TREE — Prendas importadas</div></footer>
+<footer class="site-footer"> <!-- Pie de página -->
+  <div class="container">© TREE — Prendas importadas</div> <!-- Texto legal -->
+</footer>
 
-<button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
-<div id="cartPanel" class="cart-panel" style="display:none"></div>
+<button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button> <!-- Botón carrito -->
+<div id="cartPanel" class="cart-panel" style="display:none"></div> <!-- Panel carrito -->
 
-<script src="app.js"></script>
+<script src="app.js"></script> <!-- Script principal -->
 </body>
 </html>

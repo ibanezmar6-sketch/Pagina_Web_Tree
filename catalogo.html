@@ -1,67 +1,67 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TREE — Catálogo</title>
-  <link rel="stylesheet" href="style.css">
+<!doctype html> <!-- Declara el documento como HTML5 -->
+<html lang="es"> <!-- Idioma principal del sitio en español -->
+<head> <!-- Inicio del encabezado -->
+  <meta charset="utf-8"> <!-- Define codificación UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Escala en móviles -->
+  <title>TREE — Catálogo</title> <!-- Título de la pestaña -->
+  <link rel="stylesheet" href="style.css"> <!-- Vincula el CSS principal -->
 </head>
-<body>
+<body> <!-- Inicio del cuerpo -->
 
-<header class="site-header header-bg">
-  <div class="nav container">
-    <a class="brand" href="index.html">
-      <img src="logo.jpeg" alt="TREE logo">
-      <span>TREE</span>
+<header class="site-header header-bg"> <!-- Encabezado con fondo personalizado -->
+  <div class="nav container"> <!-- Contenedor del menú -->
+    <a class="brand" href="index.html"> <!-- Enlace al inicio con marca -->
+      <img src="logo.jpeg" alt="TREE logo"> <!-- Logo principal -->
+      <span>TREE</span> <!-- Nombre de la marca -->
     </a>
-    <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav id="mainNav" class="main-nav" aria-label="Menú principal">
-      <a href="index.html">Inicio</a>
-      <a href="SobreNosotros.html">Sobre Nosotros</a>
-      <a class="active" href="catalogo.html">Catálogo</a>
-      <a href="contacto.html">Contactos</a>
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button> <!-- Botón menú móvil -->
+    <nav id="mainNav" class="main-nav" aria-label="Menú principal"> <!-- Navegación principal -->
+      <a href="index.html">Inicio</a> <!-- Enlace: inicio -->
+      <a href="SobreNosotros.html">Sobre Nosotros</a> <!-- Enlace: información -->
+      <a class="active" href="catalogo.html">Catálogo</a> <!-- Enlace activo -->
+      <a href="contacto.html">Contactos</a> <!-- Enlace: contacto -->
     </nav>
   </div>
 </header>
 
-<main class="container">
-  <section class="card">
-    <h2>Catálogo</h2>
+<main class="container"> <!-- Contenedor principal -->
+  <section class="card"> <!-- Tarjeta de contenido -->
+    <h2>Catálogo</h2> <!-- Título de la sección -->
 
-    <div class="catalog-controls">
-      <input id="search" placeholder="Buscar producto..." aria-label="Buscar productos" />
-      <select id="sort" onchange="applySort(this.value)" aria-label="Ordenar">
-        <option value="popular">Más populares</option>
-        <option value="price-asc">Precio ↑</option>
-        <option value="price-desc">Precio ↓</option>
-        <option value="new">Novedades</option>
+    <div class="catalog-controls"> <!-- Controles de búsqueda y filtros -->
+      <input id="search" placeholder="Buscar producto..." aria-label="Buscar productos" /> <!-- Barra de búsqueda -->
+      <select id="sort" onchange="applySort(this.value)" aria-label="Ordenar"> <!-- Selector de ordenamiento -->
+        <option value="popular">Más populares</option> <!-- Orden por popularidad -->
+        <option value="price-asc">Precio ↑</option> <!-- Orden precio ascendente -->
+        <option value="price-desc">Precio ↓</option> <!-- Orden precio descendente -->
+        <option value="new">Novedades</option> <!-- Orden por nuevos -->
       </select>
-      <div class="filters" aria-hidden="true">
-        <button onclick="filterCategory('all')">Todos</button>
-        <button onclick="filterCategory('women')">Mujer</button>
-        <button onclick="filterCategory('men')">Hombre</button>
-        <button onclick="filterCategory('accessories')">Accesorios</button>
+      <div class="filters" aria-hidden="true"> <!-- Filtros por categoría -->
+        <button onclick="filterCategory('all')">Todos</button> <!-- Mostrar todos -->
+        <button onclick="filterCategory('women')">Mujer</button> <!-- Filtrar mujeres -->
+        <button onclick="filterCategory('men')">Hombre</button> <!-- Filtrar hombres -->
+        <button onclick="filterCategory('accessories')">Accesorios</button> <!-- Filtrar accesorios -->
       </div>
     </div>
 
-    <div id="products" class="grid" aria-live="polite"></div>
-    <div id="pagination" class="pagination"></div>
+    <div id="products" class="grid" aria-live="polite"></div> <!-- Contenedor dinámico de productos -->
+    <div id="pagination" class="pagination"></div> <!-- Contenedor de paginación -->
   </section>
 </main>
 
 <!-- Modal producto -->
-<div id="productModal" class="modal" style="display:none" aria-hidden="true">
-  <div class="modal-inner" role="dialog" aria-modal="true">
-    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button>
-    <div id="modalContent"></div>
+<div id="productModal" class="modal" style="display:none" aria-hidden="true"> <!-- Modal oculto -->
+  <div class="modal-inner" role="dialog" aria-modal="true"> <!-- Contenido del modal -->
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button> <!-- Botón cerrar -->
+    <div id="modalContent"></div> <!-- Datos del producto seleccionado -->
   </div>
 </div>
 
-<footer class="site-footer"><div class="container">© TREE — Prendas importadas</div></footer>
+<footer class="site-footer"><div class="container">© TREE — Prendas importadas</div></footer> <!-- Pie de página -->
 
-<button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
-<div id="cartPanel" class="cart-panel" style="display:none"></div>
+<button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button> <!-- Botón carrito flotante -->
+<div id="cartPanel" class="cart-panel" style="display:none"></div> <!-- Panel lateral del carrito -->
 
-<script src="app.js"></script>
+<script src="app.js"></script> <!-- Script principal -->
 </body>
 </html>

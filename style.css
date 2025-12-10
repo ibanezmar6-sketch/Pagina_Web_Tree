@@ -1,161 +1,749 @@
-:root{
-  --green-1:#d8e6e3;
-  --green-2:#2e3b36;
-  --green-3:#73d68d;
-  --green-4:#04550f;
-  --accent:var(--green-2);
-  --max-width:1100px;
-  --card-radius:12px;
-  --gap:16px;
-  --muted:#79d6ab;
-}
-*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial}
-html,body{height:100%}
-body{margin:0;background:linear-gradient(180deg,#f7fbf8,#ffffff);color:#243331;line-height:1.45;-webkit-font-smoothing:antialiased}
-.container{max-width:var(--max-width);margin:0 auto;padding:18px}
-a{color:inherit}
+:root{ /* Variables globales para colores, tamaños y estilos */
+  --max-width:1100px; /* Ancho máximo del contenido */
+  --card-radius:11px; /* Radio de borde para tarjetas */
+  --gap:16px; /* Espaciado estándar */
+  --muted:#15281f; /* Color de texto tenue */
 
-/* HERO RIGHT IMAGE FIX */
+  /* ENCABEZADO (menú/nav) */
+  --header-btn-bg:#157942; /* Color de botón del menú */
+  --header-btn-hover:#5ebe85; /* Color hover de los botones del menú */
+
+  /* CATÁLOGO – botón "Añadir" */
+  --catalog-btn-bg:#228441; /* Fondo del botón Añadir */
+  --catalog-btn-hover:#0E4F32; /* Fondo del botón Añadir al hacer hover */
+
+  /* HERO – botones CTA */
+  --cta-btn-bg:#0f7d3b; /* Color base de botones CTA */
+  --cta-btn-hover:#51C776; /* Color hover de botones CTA */
+
+  /* CARRITO – botón flotante */
+  --cart-btn-bg:#038035b9; /* Color del botón del carrito */
+}
+
+*{
+  box-sizing:border-box; /* Incluye padding y borde en el tamaño total */
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; /* Fuente global */
+}
+
+html,body{
+  height:100%; /* Ocupa toda la altura disponible */
+}
+
+body{
+  margin:0; /* Quita margenes por defecto */
+  background:linear-gradient(180deg,#f7fbf8,#ffffff); /* Fondo degradado suave */
+  color:#243331; /* Color principal del texto */
+  line-height:1.45; /* Altura de línea estándar */
+  -webkit-font-smoothing:antialiased; /* Suaviza fuentes en navegadores WebKit */
+}
+
+.container{
+  max-width:var(--max-width); /* Limita el ancho del contenido */
+  margin:0 auto; /* Centra horizontalmente */
+  padding:20px; /* Agrega espacio interior */
+}
+
+a{color:inherit} /* Los enlaces heredan color del texto */
+
+/* ---------------- HERO RIGHT IMAGE FIX ---------------- */
+.hero-right img{
+  width:410px; /* Tamaño base de la imagen */
+  max-width:100%; /* Evita que sobrepase su contenedor */
+  height:auto; /* Mantiene proporción */
+  display:block; /* Evita espacios fantasmas */
+  margin:0 auto; /* Centra horizontalmente */
+  border-radius:18px; /* Bordes redondeados */
+  box-shadow:0 12px 28px rgba(0,0,0,0.12); /* Sombra decorativa */
+}
+
+.hero-right{
+  flex:1; /* Ocupa espacio sobrante */
+  display:flex; /* Activa flexbox */
+  flex-direction:column; /* Acomoda elementos en columna */
+  align-items:center; /* Centra horizontalmente */
+  justify-content:center; /* Centra verticalmente */
+  gap:20px; /* Espaciado entre elementos */
+}
+
+.hero-landing{
+  display:flex; /* Layout flexible */
+  align-items:center; /* Centra verticalmente */
+  justify-content:space-between; /* Separa izquierda y derecha */
+  gap:40px; /* Espaciado entre columnas */
+  padding:40px 30px; /* Espaciado interno */
+}
+
+/* ---------------- HEADER (FONDO + TRANSPARENCIA) ---------------- */
+
+.site-header{
+  position:sticky; /* Se queda fijo al hacer scroll */
+  top:0; /* Pegado arriba */
+  z-index:60; /* Se mantiene sobre otros elementos */
+  backdrop-filter: blur(6px); /* Efecto vidrio borroso */
+  background:transparent; /* Fondo transparente */
+  box-shadow:0 6px 16px rgba(231, 225, 225, 0.189); /* Sombra ligera */
+}
+
+.header-bg{
+  background-image:url('fondo.png'); /* Imagen de fondo */
+  background-size:cover; /* Escala para cubrir */
+  background-position:center; /* Centra la imagen */
+  background-repeat:no-repeat; /* Evita repetición */
+  position:relative; /* Necesario para capa overlay */
+}
+
+/* Capa suave para legibilidad */
+.header-bg::before{
+  content:''; /* Crea pseudo-elemento */
+  position:absolute; /* Lo superpone */
+  inset:0; /* Cubre todo */
+  background:rgba(255, 255, 255, 0.605); /* Capa blanca translúcida */
+  z-index:0; /* Va debajo del contenido */
+}
+
+/* Contenido encima */
+.header-bg .nav,
+.header-bg > *{
+  position:relative; /* Se posa sobre la capa */
+  z-index:2; /* Por encima del overlay */
+}
+
+/* ---------------- NAV ---------------- */
+
+.nav{
+  display:flex; /* Activa flexbox */
+  align-items:center; /* Centra verticalmente */
+  justify-content:space-between; /* Separa logo y menú */
+  gap:12px; /* Espaciado entre elementos */
+}
+
+.brand{
+  display:flex; /* Acomoda logo + texto */
+  align-items:center; /* Centra verticalmente */
+  gap:10px; /* Espacio entre logo y nombre */
+  text-decoration:none; /* Quita subrayado */
+  color:inherit; /* Usa mismo color del texto */
+}
+
+.brand img{
+  width:60px; /* Tamaño del logo */
+  height:56px; /* Alto del logo */
+  border-radius:8px; /* Bordes redondeados */
+  object-fit:cover; /* Recorta sin deformar */
+}
+
+.brand span{
+  font-weight:700; /* Negrita para nombre */
+  font-size:25px; /* Tamaño del texto */
+  color:rgb(255, 255, 255); /* Color blanco para buena visibilidad */
+  text-shadow:0px 2px 4px rgba(0,0,0,0.8); /* Sombra suave debajo del texto */
+}
+
+/* BOTONES DEL MENÚ */
+.main-nav{
+  display:flex; /* Alinea enlaces en fila */
+  gap:10px; /* Espaciado */
+  align-items:center; /* Centra verticalmente */
+}
+
+.main-nav a{
+  padding:8px 12px; /* Espaciado interno */
+  border-radius:10px; /* Bordes redondeados */
+  background:var(--header-btn-bg); /* Color del botón */
+  color:rgba(243, 246, 243, 0.997); /* Color del texto */
+  text-decoration:none; /* Quita subrayado */
+  font-weight:600; /* Semi-negrita */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme en botones del menú */
+}
+
+.main-nav a:hover,
+.main-nav a.active{
+  background:var(--header-btn-hover); /* Color al pasar el mouse */
+  color:white; /* Texto blanco */
+}
+
+/* Hamburguesa blanca */
+.nav-toggle{
+  display:none; /* Oculto en escritorio */
+  background:transparent; /* Fondo transparente */
+  border:none; /* Sin bordes */
+  font-size:20px; /* Tamaño del ícono */
+  padding:6px; /* Espacio interno */
+  cursor:pointer; /* Mano al pasar */
+  color:white !important; /* Se asegura que sea blanco */
+  text-shadow:0px 2px 4px rgba(0,0,0,0.9); /* Sombra suave bajo el ícono */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra para el botón hamburguesa */
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+  display:flex; /* Estructura flexible */
+  gap:var(--gap); /* Espaciado */
+  align-items:center; /* Centrado vertical */
+  padding:40px 20px; /* Espaciado interno */
+}
+
+.hero-left{flex:1} /* Toma todo el espacio disponible */
+.hero-right{width:320px;display:flex;flex-direction:column;align-items:center;gap:18px} /* Columna derecha del hero */
+
+.hero-landing h1{
+  font-size:36px; /* Tamaño grande del título */
+  margin:0 0 10px; /* Espaciado inferior */
+}
+
+/* Descripción del hero */
+.lead{
+  color:#41524c; /* Color suave del texto */
+  margin-bottom:12px; /* Espaciado inferior */
+  font-size:17px !important; /* Tamaño de texto */
+  line-height:1.9 !important; /* Espaciado entre líneas */
+}
+
+/* ---------------- CTA BUTTONS ---------------- */
+
+.cta-row{
+  display:flex; /* Alinea botones */
+  gap:16px !important; /* Espacio entre botones */
+  margin-bottom:25px !important; /* Espacio inferior */
+  flex-wrap:wrap; /* Permite salto en pantallas pequeñas */
+}
+/* VER CATÁLOGO */
+.cta{
+  display:inline-block; /* Comportamiento tipo botón */
+  padding:10px 14px; /* Espaciado */
+  border-radius:10px; /* Borde redondeado */
+  background:var(--cta-btn-bg); /* Fondo CTA */
+  color:white; /* Texto blanco */
+  text-decoration:none; /* Sin subrayado */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme en botones CTA */
+}
+
+/* QUIÉNES SOMOS */
+.cta.alt{
+  background:var(--cta-btn-bg) !important; /* Igual color que CTA principal */
+  border:none !important; /* Sin borde */
+  color:white !important; /* Texto blanco */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme en CTA alternativo */
+}
+
+.cta:hover,
+.cta.alt:hover{
+  background:var(--cta-btn-hover) !important; /* Color al hacer hover */
+}
+
+/* ---------------- STATS ---------------- */
+
+.stats{
+  display:flex; /* Layout flexible */
+  gap:12px; /* Espaciado */
+  margin-top:18px; /* Separación del bloque anterior */
+}
+
+.stats div{
+  background:rgba(241, 219, 159, 0.807); /* Fondo amarillo suave */
+  border-radius:10px; /* Bordes redondeados */
+  padding:10px; /* Espaciado interno */
+  box-shadow:0px 6px 14px rgba(0,0,0,0.18); /* Sombra más visible y debajo de la tarjeta */
+  text-align:center; /* Centro el texto */
+  flex:1; /* Cada bloque ocupa el mismo tamaño */
+}
+
+.stats span{
+  display:block; /* Se muestra en nueva línea */
+  color:var(--muted); /* Color tenue */
+  font-size:13px; /* Tamaño pequeño */
+  margin-top:6px; /* Separación del número */
+}
+
+/* ---------------- CARDS ---------------- */
+
+.card{
+  background:rgba(21, 79, 6, 0.1); /* Fondo muy suave verde */
+  border-radius:var(--card-radius); /* Borde redondeado */
+  padding:22px !important; /* Espaciado interno */
+  margin:26px 0 !important; /* Espacios verticales */
+  box-shadow:0 6px 18px rgba(0,0,0,0.08); /* Sombra suave */
+}
+
+.two-cols{
+  display:flex; /* Dos columnas */
+  gap:var(--gap); /* Espacio entre columnas */
+}
+
+.two-cols > *{
+  flex:1; /* Ambas columnas ocupan la misma proporción */
+}
+
+.card h2{
+  font-size:36px !important; /* Tamaño grande de título */
+}
+
+.card h4{
+  font-size:20px !important; /* Tamaño mediano de subtítulos */
+  margin-bottom:10px !important; /* Separación con contenido */
+}
+
+.small{
+  font-size:14px !important; /* Texto pequeño */
+  color:var(--muted); /* Color oscuro suave */
+  line-height:1.55 !important; /* Espaciado de líneas */
+}
+
+/* ---------------- GRID / PRODUCTOS ---------------- */
+
+.grid{
+  display:grid; /* Activa layout de grilla */
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr)) !important; /* Tamaño adaptable */
+  gap:16px; /* Espacio entre productos */
+}
+
+.featured-grid{
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); /* Ajuste dinámico */
+}
+
+.product{
+  border-radius:14px !important; /* Bordes redondeados */
+  overflow:hidden; /* Recorta contenido desbordado */
+  border:1px solid #eef6ef; /* Borde sutil */
+  background:linear-gradient(180deg,#fff,#fbfffb); /* Fondo suave */
+  display:flex; /* Organiza internamente */
+  flex-direction:column; /* En columna */
+}
+
+.product img{
+  width:100%; /* Imagen ocupa ancho completo */
+  height:260px !important; /* Altura fija */
+  object-fit:cover; /* Recorta sin deformar */
+  transition: transform 0.25s ease, filter 0.25s ease; /* Efectos suaves */
+}
+/* Hover animación */
+.product:hover img{
+  transform:scale(1.05); /* Aumenta tamaño al pasar mouse */
+  filter:brightness(1.08); /* Aclara imagen */
+}
+
+.product .meta{
+  padding:18px !important; /* Espaciado interno */
+}
+
+.price{
+  font-weight:800; /* Negrita fuerte para el precio */
+  color:#157942; /* Color verde del precio */
+}
+
+/* BOTÓN “Añadir” */
+.btn{
+  padding:8px 10px; /* Tamaño del botón */
+  border-radius:10px; /* Bordes redondeados */
+  border:none; /* Sin borde */
+  cursor:pointer; /* Mano al pasar */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme para todos los botones .btn */
+}
+
+.btn.add{
+  background:var(--catalog-btn-bg); /* Color del botón añadir */
+  color:white; /* Texto blanco */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme del botón Añadir */
+}
+
+.btn.add:hover{
+  background:var(--catalog-btn-hover); /* Color hover */
+}
+
+/* ---------------- CATALOGO CONTROLS ---------------- */
+
+.catalog-controls{
+  display:flex; /* Ordena controles */
+  flex-wrap:wrap; /* Permite que bajen de línea */
+  align-items:center; /* Centra verticalmente */
+  gap:10px; /* Espaciado */
+  margin-bottom:12px; /* Separación inferior */
+}
+
+.catalog-controls input[type="search"],
+#search{
+  padding:8px; /* Tamaño interno */
+  border-radius:10px; /* Bordes redondeados */
+  border:1px solid #e6efe6; /* Borde suave */
+  min-width:220px; /* Ancho mínimo */
+}
+
+.catalog-controls select{
+  padding:8px; /* Espacio interno */
+  border-radius:10px; /* Bordes redondeados */
+  border:1px solid #e6efe6; /* Borde suave */
+}
+
+.filters button{
+  padding:8px 12px; /* Tamaño botones */
+  border-radius:10px; /* Bordes redondeados */
+  border:1px solid #eef6ef; /* Borde sutil */
+  background:transparent; /* Fondo transparente */
+  cursor:pointer; /* Mano en hover */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme en filtros */
+}
+
+/* ---------------- MODAL ---------------- */
+
+.modal{
+  position:fixed; /* Se superpone a toda la pantalla */
+  inset:0; /* Ocupa todo el viewport */
+  background:rgba(0,0,0,0.45); /* Fondo oscuro translúcido */
+  display:flex; /* Centra el modal */
+  align-items:center; /* Centrado vertical */
+  justify-content:center; /* Centrado horizontal */
+  z-index:120; /* Encima del resto */
+}
+
+.modal-inner{
+  position:relative; /* Permite posicionar botón cerrar */
+  background:white; /* Fondo blanco */
+  border-radius:12px; /* Bordes redondeados */
+  padding:18px; /* Espacio interno */
+  max-width:760px; /* Ancho máximo */
+  width:95%; /* Se adapta a pantallas pequeñas */
+  box-shadow:0 20px 50px rgba(0,0,0,0.3); /* Sombra profunda */
+}
+
+.modal-close{
+  position:absolute; /* Lo coloca en esquina del modal */
+  right:12px; /* Separación lateral */
+  top:8px; /* Separación superior */
+  border:none; /* Sin borde */
+  background:transparent; /* Fondo transparente */
+  font-size:18px; /* Tamaño del ícono */
+  cursor:pointer; /* Cursor de mano */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme para botón cerrar */
+}
+
+/* ---------------- TEAM ---------------- */
+
+.team-grid{
+  display:flex; /* Alinea miembros */
+  gap:12px; /* Espaciado */
+  flex-wrap:wrap; /* Permite saltar línea */
+}
+
+.team-member{
+  background:white; /* Fondo blanco */
+  border-radius:10px; /* Bordes redondeados */
+  padding:12px; /* Espacio interior */
+  text-align:center; /* Centra contenido */
+  box-shadow:0 6px 14px rgba(0,0,0,0.04); /* Sombra suave */
+}
+
+.team-member img{
+  width:100%; /* Imagen ocupa ancho total */
+  height:200px; /* Alto fijo */
+  object-fit:cover; /* Recorta sin deformar */
+  border-radius:8px; /* Bordes redondeados */
+}
+
+/* ---------------- NEWSLETTER ---------------- */
+
+.newsletter-form{
+  display:flex; /* Alinea campo + botón */
+  gap:8px; /* Espaciado entre ellos */
+}
+
+.newsletter-form input{
+  flex:1; /* Input ocupa más espacio */
+  padding:10px; /* Espacio interno */
+  border-radius:10px; /* Bordes redondeados */
+  border:1px solid #e6efe6; /* Borde suave */
+}
+
+.newsletter-form button{
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme para botón de newsletter */
+}
+
+/* ---------------- CARRITO ---------------- */
+
+/* Botón flotante */
+.cart-btn{
+  position:fixed; /* Queda flotante sobre la pantalla */
+  right:18px; /* Separación derecha */
+  bottom:18px; /* Separación abajo */
+  background:var(--cart-btn-bg); /* Color del botón */
+  color:white; /* Texto blanco */
+  padding:12px 14px; /* Tamaño del botón */
+  border-radius:12px; /* Bordes redondeados */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme en botón flotante */
+  z-index:40; /* Encima del contenido principal */
+}
+
+.cart-panel{
+  position:fixed; /* Panel flotante */
+  right:18px; /* Pegado a la derecha */
+  bottom:70px; /* Encima del botón del carrito */
+  width:360px; /* Ancho del panel */
+  max-height:75vh; /* Altura máxima */
+  background:white; /* Fondo blanco */
+  border-radius:12px; /* Bordes redondeados */
+  padding:12px; /* Espaciado interno */
+  box-shadow:0 18px 40px rgba(0,0,0,0.18); /* Sombra fuerte */
+  overflow:auto; /* Permite scroll interno */
+  z-index:45; /* Encima del botón del carrito */
+}
+
+.cart-item{
+  display:flex; /* Acomoda imagen + info */
+  gap:10px; /* Espaciado */
+  align-items:center; /* Centrado vertical */
+  padding:8px 0; /* Espaciado vertical */
+  border-bottom:1px solid #f0f4f0; /* Línea divisora */
+}
+
+.cart-item img{
+  width:56px; /* Tamaño miniatura */
+  height:56px; /* Altura fija */
+  object-fit:cover; /* Recorta imagen */
+  border-radius:8px; /* Bordes redondeados */
+}
+
+.total-row{
+  display:flex; /* Ordena texto */
+  justify-content:space-between; /* Separa total y monto */
+  padding-top:12px; /* Espaciado superior */
+  font-weight:800; /* Negrita fuerte */
+}
+
+.pagination{
+  display:flex; /* Alineación de botones */
+  gap:8px; /* Espaciado */
+  justify-content:center; /* Centrado */
+  margin-top:12px; /* Separación superior */
+}
+
+.pagination button{
+  padding:6px 10px; /* Tamaño botones */
+  border-radius:8px; /* Bordes redondeados */
+  border:1px solid #eef6ef; /* Borde sutil */
+  background:white; /* Fondo blanco */
+  box-shadow:0px 4px 10px rgba(0,0,0,0.30); /* Sombra uniforme en paginación */
+}
+/* ---------------- FOOTER ---------------- */
+
+.site-footer{
+  padding:20px 0; /* Espaciado vertical */
+  text-align:center; /* Centra texto */
+  color:#4b5450; /* Color tenue */
+}
+
+.footer-row{
+  display:flex; /* Distribuye elementos */
+  justify-content:space-between; /* Separa textos */
+  align-items:center; /* Centra verticalmente */
+  gap:16px; /* Espaciado */
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:880px){
+  
+  .main-nav{
+    display:none; /* Oculta menú en móvil */
+    position:absolute; /* Menú flotante */
+    right:18px; /* Posición derecha */
+    top:64px; /* Debajo del header */
+    background:rgba(255,255,255,0.98); /* Fondo casi blanco */
+    padding:10px; /* Espaciado */
+    border-radius:12px; /* Bordes redondeados */
+    box-shadow:0 10px 30px rgba(0,0,0,0.12); /* Sombra */
+    flex-direction:column; /* En columna */
+  }
+
+  .nav-toggle{display:block} /* Muestra el ícono hamburguesa */
+
+  .hero{flex-direction:column} /* Hero se apila verticalmente */
+  .two-cols{flex-direction:column} /* Columnas se apilan */
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))} /* Ajusta productos */
+  .featured-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))} /* Ajuste responsive */
+  .cart-panel{right:12px;left:12px;width:auto} /* Panel ocupa más ancho */
+}
+
+input, textarea{
+  font-family:inherit; /* Usa misma fuente */
+  font-size:15px; /* Tamaño del texto */
+  padding:10px; /* Espacio interno */
+  border-radius:8px; /* Bordes redondeados */
+  border:1px solid #e6efe6; /* Borde tenue */
+  width:100%; /* Ocupa todo el ancho */
+}
+
+textarea{
+  min-height:100px; /* Altura mínima */
+  resize:vertical; /* Permite modificar altura */
+}
+
+/* ---------------- ANIMACIÓN IMÁGENES ---------------- */
+
+.product img {
+  transition: transform 0.25s ease, filter 0.25s ease; /* Transiciones suaves */
+}
+
+.product:hover img {
+  transform: scale(1.05); /* Zoom suave */
+  filter: brightness(1.08); /* Aumenta brillo */
+}
+
+/* Animación imagen principal */
 .hero-right img {
-  width: 320px;     
-  max-width: 100%;   /* que no se pase en móvil */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  opacity: 0; /* Comienza invisible */
+  transform: scale(0.85); /* Comienza más pequeña */
+  animation: fadeZoomIn 0.9s ease-out forwards; /* Animación de entrada */
+  transition: transform 0.35s ease, filter 0.35s ease; /* Hover suave */
 }
 
-/* Para que la derecha no ocupe demasiado espacio */
-.hero-right {
-  flex: 1;
+.hero-right img:hover {
+  transform: scale(1.12); /* Más zoom en hover */
+  filter: brightness(1.12); /* Aumenta brillo */
+}
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0; /* Inicio invisible */
+    transform: scale(0.95); /* Un poco reducida */
+  }
+  to {
+    opacity: 1; /* Se vuelve visible */
+    transform: scale(1); /* Tamaño normal */
+  }
+}
+
+/*“SOBRE NOSOTROS” */
+
+/* Centrado perfecto del bloque */
+.team-member {
+  text-align: center; /* Centra contenido */
+  padding: 18px; /* Espaciado interno */
+  border-radius: 12px; /* Bordes redondeados */
+  background: white; /* Fondo blanco */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06); /* Sombra suave */
+  animation: fadeTeam 0.8s ease-out forwards; /* Animación de entrada */
+  opacity: 0; /* Inicia invisible */
+}
+
+/* Imagen centrada y más proporcional */
+.team-member img {
+  width: 90% !important; /* Ajusta ancho */
+  max-width: 240px; /* Límite de tamaño */
+  height: 260px !important; /* Altura fija */
+  object-fit: cover; /* Recorta sin deformar */
+  border-radius: 12px; /* Bordes redondeados */
+  margin: 0 auto 12px auto; /* Centrado con margen inferior */
+  display: block; /* Evita espacios extra */
+}
+
+/* Nombre más claro y uniforme */
+.team-member h5 {
+  font-size: 18px !important; /* Tamaño del nombre */
+  margin: 8px 0 !important; /* Separación */
+  font-weight: 700; /* Negrita */
+  color: #0f7d3b; /* Verde elegante */
+}
+
+/* Descripción más legible */
+.team-member p.small {
+  font-size: 15px !important; /* Tamaño más cómodo */
+  line-height: 1.55; /* Espaciado de lectura */
+  margin-top: 4px; /* Separación superior */
+  color: #31473a; /* Color suave */
+}
+
+/* Animación */
+@keyframes fadeTeam {
+  from {
+    opacity: 0; /* Invisible */
+    transform: translateY(18px); /* Desplazado hacia abajo */
+  }
+  to {
+    opacity: 1; /* Visible */
+    transform: translateY(0); /* Posición natural */
+  }
+}
+
+/* -------- Formulario de contacto-------- */
+
+.contact-form {
+  padding: 26px !important;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  gap: 18px;
+  border-radius: 14px;
 }
 
-/* Evitar que toda la sección crezca demasiado */
-.hero-landing {
+.contact-form h4 {
+  font-size: 22px;
+  margin-bottom: 6px;
+  color: #0f7d3b;
+  font-weight: 700;
+}
+
+/* Grupo ordenado */
+.form-group {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 40px 30px;
+  flex-direction: column;
+  gap: 6px;
 }
 
-/* HEADER / NAV */
-.site-header{
-  position:sticky;top:0;z-index:60;
-  backdrop-filter: blur(6px);
-  background: rgba(255,255,255,0.82);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.brand img{width:56px;height:56px;border-radius:8px;object-fit:cover}
-.brand span{font-weight:700;color:var(--green-1);font-size:18px}
-.main-nav{display:flex;gap:10px;align-items:center}
-.main-nav a{padding:8px 12px;border-radius:10px;color:var(--green-2);text-decoration:none;font-weight:600}
-.main-nav a:hover{background:var(--green-4);color:var(--green-1)}
-.main-nav a.active{background:var(--green-2);color:white;box-shadow:0 6px 18px rgba(18,59,51,0.14)}
-.nav-toggle{display:none;background:transparent;border:none;font-size:20px;padding:6px;cursor:pointer;color:var(--green-2)}
-
-/* HERO */
-.hero{display:flex;gap:var(--gap);align-items:center;padding:28px 18px}
-.hero-left{flex:1}
-.hero-right{width:320px;display:flex;flex-direction:column;align-items:center;gap:18px}
-.hero-landing h1{font-size:34px;margin:0 0 10px}
-.lead{color:#41524c;margin-bottom:12px}
-.cta-row{display:flex;gap:10px;margin-bottom:16px}
-.cta{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none}
-.cta.alt{background:transparent;border:1px solid var(--green-4);color:var(--green-1)}
-.stats{display:flex;gap:12px;margin-top:18px}
-.stats div{background:#fff;border-radius:10px;padding:10px;box-shadow:0 6px 14px rgba(0,0,0,0.04);text-align:center;flex:1}
-.stats span{display:block;color:var(--muted);font-size:13px;margin-top:6px}
-
-/* CARDS & LAYOUT */
-.card{background:white;border-radius:var(--card-radius);padding:18px;margin:18px 0;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
-.two-cols{display:flex;gap:var(--gap)}
-.two-cols > *{flex:1}
-.small{font-size:14px;color:var(--muted)}
-.muted{color:#829289}
-
-/* GRID / PRODUCTS */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.featured-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.product{border-radius:12px;overflow:hidden;border:1px solid #eef6ef;background:linear-gradient(180deg,#fff,#fbfffb);display:flex;flex-direction:column}
-.product img{width:100%;height:220px;object-fit:cover}
-.product .meta{padding:12px}
-.price{font-weight:800;color:var(--green-2)}
-.btn{padding:8px 10px;border-radius:10px;border:none;cursor:pointer}
-.btn.add{background:var(--green-3);color:var(--green-1)}
-
-/* catalog controls */
-.catalog-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px}
-.catalog-controls input[type="search"], #search{padding:8px;border-radius:10px;border:1px solid #e6efe6;min-width:220px}
-.catalog-controls select{padding:8px;border-radius:10px;border:1px solid #e6efe6}
-.filters button{padding:8px 12px;border-radius:10px;border:1px solid #eef6ef;background:transparent;cursor:pointer}
-
-/* modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:120}
-.modal-inner{position:relative;background:white;border-radius:12px;padding:18px;max-width:760px;width:95%;box-shadow:0 20px 50px rgba(0,0,0,0.3)}
-.modal-close{position:absolute;right:12px;top:8px;border:none;background:transparent;font-size:18px;cursor:pointer}
-
-/* team */
-.team-grid{display:flex;gap:12px;flex-wrap:wrap}
-.team-member{background:#fff;border-radius:10px;padding:12px;text-align:center;box-shadow:0 6px 14px rgba(0,0,0,0.04)}
-.team-member img{width:100%;height:200px;object-fit:cover;border-radius:8px}
-
-/* newsletter */
-.newsletter-form{display:flex;gap:8px}
-.newsletter-form input{flex:1;padding:10px;border-radius:10px;border:1px solid #e6efe6}
-
-/* cart */
-.cart-btn{position:fixed;right:18px;bottom:18px;background:var(--accent);color:white;padding:12px 14px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.18);z-index:40}
-.cart-panel{position:fixed;right:18px;bottom:70px;width:360px;max-height:75vh;background:white;border-radius:12px;padding:12px;box-shadow:0 18px 40px rgba(0,0,0,0.18);overflow:auto;z-index:45}
-.cart-item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f0f4f0}
-.cart-item img{width:56px;height:56px;object-fit:cover;border-radius:8px}
-.total-row{display:flex;justify-content:space-between;padding-top:12px;font-weight:800}
-.pagination{display:flex;gap:8px;justify-content:center;margin-top:12px}
-.pagination button{padding:6px 10px;border-radius:8px;border:1px solid #eef6ef;background:white}
-
-/* footer */
-.site-footer{padding:20px 0;text-align:center;color:#6d7f78}
-.footer-row{display:flex;justify-content:space-between;align-items:center;gap:16px}
-
-/* responsive */
-@media(max-width:880px){
-  .main-nav{display:none;position:absolute;right:18px;top:64px;background:rgba(255,255,255,0.98);padding:10px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12);flex-direction:column}
-  .nav-toggle{display:block}
-  .hero{flex-direction:column}
-  .two-cols{flex-direction:column}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
-  .featured-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
-  .cart-panel{right:12px;left:12px;width:auto}
+/* Etiquetas */
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1d3b29;
 }
 
-/* HEADER con fondo real y overlay super transparente */
-.header-bg {
-  background-image: url('fondo.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #dfe9e2;
+  background: #ffffff;
+  font-size: 15px;
+  transition: 0.25s ease;
 }
 
-.header-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.05); /* super transparente para que se note el fondo pero se vean botones */
-  z-index: 0;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #0f7d3b;
+  box-shadow: 0 0 6px rgba(18, 111, 60, 0.25);
 }
 
-/* asegurar que el nav esté encima del overlay */
-.header-bg .nav { position: relative; z-index: 2; }
+/* Botón profesional */
+.contact-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  background: #0f7d3b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: 0.25s ease;
+}
 
-/* entrada y textarea estilos */
-input, textarea { font-family: inherit; font-size: 15px; padding:10px; border-radius:8px; border:1px solid #e6efe6; width:100%; }
-textarea { min-height:100px; resize:vertical; }
+/*mapa*/
+
+.contact-btn:hover {
+  background: #51C776;
+}
+iframe {
+  width: 100%; /* Ocupa todo el ancho */
+  height: 220px; /* Alto estándar para mapas */
+  border: 0; /* Sin bordes */
+  border-radius: 12px; /* Bordes redondeados */
+  overflow: hidden; /* Evita fugas */
+}
+/* Estilos del mapa de contacto */
+.contact-map iframe {
+  width: 100%; /* Ocupa todo el ancho */
+  height: 220px; /* Altura del mapa */
+  border: 0; /* Sin borde */
+  border-radius: 12px; /* Bordes redondeados */
+  overflow: hidden; /* Evita desbordes */
+} 
